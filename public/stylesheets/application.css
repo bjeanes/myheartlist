@@ -3,6 +3,9 @@ body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px; }
 
+th {
+  color: red; }
+
 a {
   color: #0000FF; }
   a img {
@@ -65,3 +68,6 @@ a {
 .session {
   background-color: lightyellow;
   padding: 20px; }
+
+.number {
+  text-align: right; }
