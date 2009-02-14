@@ -24,7 +24,7 @@
         - if logged_in?
           = link_to "My Heart List", user_hearts_path(current_user)
           |
-        = link_to "Public Heart List", hearts_path
+        = link_to "Global Heart List", hearts_path
       
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
