@@ -1,0 +1,19 @@
+# password: "secret"
+user_1:
+  username: bo
+  email: foo@example.com
+  password_hash: 3488f5f7efecab14b91eb96169e5e1ee518a569f
+  password_salt: bef65e058905c379436d80d1a32e7374b139e7b0
+
+user_2:
+  username: nigelr
+  email: bar@example.com
+  password_hash: 3488f5f7efecab14b91eb96169e5e1ee518a569f
+  password_salt: bef65e058905c379436d80d1a32e7374b139e7b0
+  is_super: true
+
+user_3:
+  username: someone
+  email: bar2@example.com
+  password_hash: 3488f5f7efecab14b91eb96169e5e1ee518a569f
+  password_salt: bef65e058905c379436d80d1a32e7374b139e7b0

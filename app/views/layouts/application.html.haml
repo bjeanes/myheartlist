@@ -1,0 +1,35 @@
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title
+      = h(yield(:title) || "Untitled")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body
+
+    #container
+      %div.session
+        - if logged_in?
+          = "Welcome  #{current_user.username}"
+          = link_to "Log out", logout_path
+        - else
+          = link_to "Sign up", signup_path
+          or
+          = link_to "log in", login_path
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+
+      %div.menu
+        - if logged_in?
+          = link_to "My Heart List", user_hearts_path(current_user)
+          |
+        = link_to "Public Heart List", hearts_path
+      
+
+      - if show_title?
+        %h1=h yield(:title)
+      
+      = yield

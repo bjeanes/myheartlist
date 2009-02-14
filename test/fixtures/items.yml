@@ -1,0 +1,32 @@
+item_1:
+  user: user_1
+  heart: heart_1
+  position: 1
+
+item_2:
+  user: user_1
+  heart: heart_2
+  position: 1
+
+item_3:
+  user: user_1
+  heart: heart_4
+  position: 1
+
+item_4:
+  user: user_2
+  heart: heart_1
+  position: 1
+
+item_5:
+  user: user_2
+  heart: heart_6
+  position: 1
+
+item_6:
+  user: user_3
+  heart: heart_5
+  position: 1
+
+
+

@@ -1,0 +1,18 @@
+- title "Heart"
+
+%p
+  %strong User:
+  =h @heart.user
+%p
+  %strong Item:
+  =h @heart.item
+%p
+  %strong Position:
+  =h @heart.position
+
+%p
+  = link_to "Edit", edit_heart_path(@heart)
+  |
+  = link_to "Destroy", @heart, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", hearts_path

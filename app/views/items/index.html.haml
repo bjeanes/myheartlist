@@ -1,0 +1,10 @@
+- title "Hearts"
+
+%table
+  %tr
+    %th Item
+  - for heart in @hearts
+    %tr
+      %td= h heart.item.name
+
+%p= link_to "New Heart", new_heart_path

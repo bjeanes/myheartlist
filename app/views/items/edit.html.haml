@@ -1,0 +1,8 @@
+- title "Edit Heart"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Edit", edit_heart_path(@heart)
+  |
+  = link_to "View All", hearts_path

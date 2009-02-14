@@ -1,0 +1,15 @@
+- title "hearts"
+
+%table
+  %tr
+    %th Name
+    %th Public Qty
+  - for heart in @hearts
+    %tr
+      %td= h heart.name
+      %td= h heart.items_count
+      %td= link_to 'Show', @user ? user_heart_path(@user, heart) : heart_path(heart)
+      %td=# link_to 'Edit', edit_heart_path(heart)
+      %td=# link_to 'Destroy', heart, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New heart", new_user_heart_path(current_user) if logged_in? && @user==current_user
