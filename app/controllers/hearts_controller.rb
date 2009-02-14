@@ -2,7 +2,10 @@ class HeartsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   rescue_from ActiveRecord::RecordNotFound, :with=> :error_logout
   before_filter :get_user
-  
+  protect_from_forgery :except=>:auto_complete_for_heart_name
+
+  auto_complete_for :heart, :name
+
   def index
     if @user
       @hearts = @user.hearts

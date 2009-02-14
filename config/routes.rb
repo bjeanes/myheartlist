@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.resources :sessions
 
-  map.resources :hearts, :only=>[:index, :show]
+  map.resources :hearts, :only=>[:index, :show], :collection=>{:auto_complete_for_heart_name=>:post}
   map.resources :items
   map.resources :users, :has_many=>:hearts
 

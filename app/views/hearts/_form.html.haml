@@ -1,8 +1,10 @@
+- content_for :head do
+  = javascript_include_tag :defaults
 - form_for [@user, @heart] do |f|
   = f.error_messages
   %p
     = f.label :name
     %br
-    = f.text_field :name
+    = text_field_with_auto_complete :heart, :name
   %p
     = f.submit "Submit"
