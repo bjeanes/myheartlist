@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     return user if user && user.matching_password?(pass)
   end
   
+  def self.find_id_or_username(params)
+    find_by_id(params) || find_by_username(params)
+  end
+
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
@@ -35,6 +39,11 @@ class User < ActiveRecord::Base
       hearts << heart
     end
   end
+
+  def to_param
+    username
+  end
+
 
   private
   

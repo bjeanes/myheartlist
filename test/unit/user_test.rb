@@ -126,5 +126,13 @@ class UserTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  context "Find by name or Id" do
+    setup { @user1 = users(:user_1) }
 
+    should("return user by ID") { assert_equal @user1, User.find_id_or_username(@user1.id) }
+    should("return user by username") { assert_equal @user1, User.find_id_or_username(@user1.username) }
+    should("return nil when unknown") { assert_nil User.find_id_or_username("Unknown user") }
+  end
+  
 end

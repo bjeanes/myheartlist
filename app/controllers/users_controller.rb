@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.find_by_id(params[:user_id])
+    @user = User.find_id_or_username(params[:user_id])
     redirect_to @user ? user_hearts_path(@user) : hearts_path
   end
 
