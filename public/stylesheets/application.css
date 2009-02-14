@@ -11,6 +11,9 @@ a {
   a img {
     border: none; }
 
+ol#hearts {
+  list-style-type: disc; }
+
 .clear {
   clear: both;
   height: 0;
