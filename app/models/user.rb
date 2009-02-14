@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :items
-  has_many :hearts, :through=>:items
+  has_many :items, :order => :position
+  has_many :hearts, :through=>:items, :order => :position
 
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation
