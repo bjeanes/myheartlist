@@ -23,16 +23,20 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
 
-  context "index action" do
+  context "show/index action" do
     setup do
       @user1 = users(:user_1)
     end
+    should "redirect to users hearts on id" do
+      get :show, :id=>@user1.id
+      assert_redirected_to user_hearts_path(@user1)
+    end
     should "redirect to users hearts" do
-      get :index, :user_id=>@user1
+      get :show, :id=>@user1.username
       assert_redirected_to user_hearts_path(@user1)
     end
     should "redirect to global hearts if invalid user" do
-      get :index, :user_id=>User.last.id+1
+      get :show, :id=>User.last.id+1
       assert_redirected_to hearts_path
     end
     should "redirect to global hearts when no user" do

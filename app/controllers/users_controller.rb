@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.find_id_or_username(params[:user_id])
-    redirect_to @user ? user_hearts_path(@user) : hearts_path
+    redirect_to hearts_path
   end
 
   def show
-    redirect_to user_hearts_path(params[:user_id])
+    @user = User.find_id_or_username(params[:id])
+    redirect_to @user ? user_hearts_path(@user) : hearts_path
   end
 
   def new
