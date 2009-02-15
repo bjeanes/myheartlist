@@ -7,8 +7,10 @@
 %ol#hearts
   - for heart in @hearts
     - content_tag_for(:li, heart) do
+      - if @user
+        %span.handle== [drag]
       = link_to heart.name, @user ? user_heart_path(@user, heart) : heart_path(heart)
       = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)" unless @user
 
 - if @user
-  = sortable_element("hearts", :url => sort_user_hearts_path(@user))
+  = sortable_element("hearts", :url => sort_user_hearts_path(@user), :handle => 'handle')
