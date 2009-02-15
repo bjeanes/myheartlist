@@ -1,8 +1,14 @@
 - title @user ? "#{@user.username}'s Hearts" : "Global Hearts"
 
+- content_for :head do
+  = javascript_include_tag :defaults
+
 %p= link_to "add heart", new_user_heart_path(current_user) if logged_in? && @user==current_user
 %ol#hearts
   - for heart in @hearts
     - content_tag_for(:li, heart) do
       = link_to heart.name, @user ? user_heart_path(@user, heart) : heart_path(heart)
       = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)" unless @user
+
+- if @user
+  = sortable_element("hearts", :url => "#TODO")
