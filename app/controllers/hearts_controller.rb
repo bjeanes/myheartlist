@@ -55,6 +55,14 @@ class HeartsController < ApplicationController
     redirect_to hearts_url
   end
 
+  def sort
+    return unless @user
+    params[:hearts].each_with_index do |id, index|
+      Item.update_all(['position = ?', index + 1], ['heart_id = ? AND user_id = ?', id, @user.id])
+    end
+    render :nothing => true
+  end
+
   private
   def get_user
     @user = User.find_id_or_username(params[:user_id]) if params[:user_id]

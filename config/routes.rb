@@ -7,7 +7,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :hearts, :only=>[:index, :show], :collection=>{:auto_complete_for_heart_name=>:post}
   map.resources :items
-  map.resources :users, :has_many=>:hearts
+  map.resources :users do |user|
+    user.resources :hearts, :collection => {:sort => :post}
+  end
 
   map.root :controller=>"hearts"
 

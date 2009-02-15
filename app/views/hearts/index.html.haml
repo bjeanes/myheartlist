@@ -11,4 +11,4 @@
       = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)" unless @user
 
 - if @user
-  = sortable_element("hearts", :url => "#TODO")
+  = sortable_element("hearts", :url => sort_user_hearts_path(@user))
