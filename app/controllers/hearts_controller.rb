@@ -9,8 +9,10 @@ class HeartsController < ApplicationController
   def index
     if @user
       @hearts = @user.hearts
+      @heart = Heart.new
     else
       @hearts = Heart.all(:order=>"items_count desc, name")
+      render :template => 'hearts/all', :layout => true and return
     end
   end
   

@@ -3,7 +3,7 @@
   
   %head
     %title
-      = h( "myheartlist - #{yield(:title)}")
+      = h( "My <3 List - #{yield(:title)}")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag 'application'
     = yield(:head)
@@ -11,20 +11,25 @@
   %body
 
     #container
-      %div.session
-        - if logged_in?
-          = "Welcome  #{current_user.username}"
-          = link_to "Log out", logout_path
-        - else
-          = link_to "Sign up", signup_path
-          or
-          = link_to "log in", login_path
+    
+      #header
+        .session
+          - if logged_in?
+            = "Welcome  #{current_user.username}"
+            = link_to "Log out", logout_path
+          - else
+            = link_to "Sign up", signup_path
+            or
+            = link_to "log in", login_path
 
-      %div.menu
-        - if logged_in?
-          = link_to "My Heart List", user_hearts_path(current_user)
-          |
-        = link_to "Global Heart List", hearts_path
+        .menu
+          - if logged_in?
+            = link_to "My Heart List", user_hearts_path(current_user)
+            |
+          = link_to "Global Heart List", hearts_path      
+
+      #logo
+        = image_tag "logo.jpg"
       
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"

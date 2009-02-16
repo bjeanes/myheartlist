@@ -1,88 +1,29 @@
-!primary_color = RED
-
-body
-  :background-color = !primary_color
-  :font
-    :family Verdana, Helvetica, Arial
-    :size 14px
-
-th
-  :color red
-
-a
-  :color #0000FF
-  img
-    :border none
-
-// Ordered list is semantically correct
-// for the hearts list, but we want it to
-// look unordered for now (and not like a list
-// at all later)
-ol#hearts
-  :list-style-type disc
-
-li
-  .handle
-    :font-size 12px
-    :cursor move
-    :color #777
-
-.clear
-  :clear both
-  :height 0
-  :overflow hidden
-
 #container
-  :width 75%
-  :margin 0 auto
-  :background #fff
-  :padding 20px 40px
-  :border solid 1px black
-  :margin-top 20px
-
-#flash_notice,
-#flash_error
-  :padding 5px 8px
-  :margin 10px 0
-
-#flash_notice
-  :background-color #CFC
-  :border solid 1px #6C6
-
-#flash_error
-  :background-color #FCC
-  :border solid 1px #C66
-
-.fieldWithErrors
-  :display inline
-
-#errorExplanation
-  :width 400px
-  :border 2px solid #CF0000
-  :padding 0
-  :padding-bottom 12px
-  :margin-bottom 20px
-  :background-color #f0f0f0
-  h2
-    :text-align left
-    :padding 5px 5px 5px 15px
-    :margin 0
-    :font
-      :weight bold
-      :size 12px
-    :background-color #c00
-    :color #fff
-  p
-    :color #333
-    :margin-bottom 0
+  :margin auto
+  :width 800px
+  :font-family "Lucida Grande"
+  :font-size 13px
+  
+  #header
+    :font-size 11px
+    :background-color #CD4940
+    :color white
     :padding 8px
-  ul
-    :margin 2px 24px
+    
+    a, a:hover
+      :color white
+      :text-decoration none
+      
+    .session
+      :float right
+  
+  #logo
+    :text-align center
+    
+  ol#my-hearts
+    :list-style none
+  
     li
-      :font-size 12px
-      :list-style disc
-.session
-  :background-color lightyellow
-  :padding 20px
-.number
-  :text-align right
+      .handle
+        :cursor move
+        :font-size 150%

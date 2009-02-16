@@ -1,16 +1,18 @@
-- title @user ? "#{@user.username}'s Hearts" : "Global Hearts"
+- title "#{@user.username}'s Hearts"
 
 - content_for :head do
   = javascript_include_tag :defaults
 
-%p= link_to "add heart", new_user_heart_path(current_user) if logged_in? && @user==current_user
-%ol#hearts
+- #%p= link_to "add heart", new_user_heart_path(current_user) if logged_in? && @user==current_user
+= render :partial => 'form'
+
+%ol#my-hearts
   - for heart in @hearts
     - content_tag_for(:li, heart) do
-      - if @user
-        %span.handle== [drag]
+      - if current_user == @user
+        %span.handle= "&#x21c5;"
       = link_to heart.name, @user ? user_heart_path(@user, heart) : heart_path(heart)
-      = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)" unless @user
+      = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)" unless @user == current_user
 
-- if @user
-  = sortable_element("hearts", :url => sort_user_hearts_path(@user), :handle => 'handle')
+- if current_user == @user
+  = sortable_element("my-hearts", :url => sort_user_hearts_path(@user), :handle => 'handle')
