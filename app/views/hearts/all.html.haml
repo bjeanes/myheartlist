@@ -1,0 +1,10 @@
+- title "All Hearts"
+
+- content_for :head do
+  = javascript_include_tag :defaults
+
+%ol#hearts
+  - for heart in @hearts
+    - content_tag_for(:li, heart) do
+      = link_to heart.name, @user ? user_heart_path(@user, heart) : heart_path(heart)
+      = "(#{pluralize(heart.items_count, 'person')} &lt;3 this)"
