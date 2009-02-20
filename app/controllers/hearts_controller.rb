@@ -59,7 +59,7 @@ class HeartsController < ApplicationController
 
   def sort
     return unless @user
-    params[:hearts].each_with_index do |id, index|
+    params['my-hearts'].each_with_index do |id, index|
       Item.update_all(['position = ?', index + 1], ['heart_id = ? AND user_id = ?', id, @user.id])
     end
     render :nothing => true

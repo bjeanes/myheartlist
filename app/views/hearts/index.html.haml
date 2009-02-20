@@ -3,7 +3,6 @@
 - content_for :head do
   = javascript_include_tag :defaults
 
-- #%p= link_to "add heart", new_user_heart_path(current_user) if logged_in? && @user==current_user
 = render :partial => 'form'
 
 %ol#my-hearts
